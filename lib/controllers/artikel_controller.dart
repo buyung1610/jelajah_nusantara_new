@@ -1,7 +1,6 @@
-import 'dart:convert';
-
 import '../models/artikel_model.dart';
 import '../services/artikel_sevice.dart';
+import 'dart:convert';
 
 class ArtikelController {
   static Future<List<Artikel>> getArtikel() async {

@@ -7,6 +7,7 @@ class ArtikelService {
   static Future<http.Response> getArtikel() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
+    
     var url = Uri.parse(baseUrl);
     return await http.get(
       url,

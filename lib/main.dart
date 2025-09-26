@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jelajah_nusantara/screens/home/home_screen.dart';
 import 'package:jelajah_nusantara/screens/splash/splash_screen.dart';
+
+import 'screens/articles/detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Jelajah Nusantara',
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const Detailscreen(),
     );
   }
 }

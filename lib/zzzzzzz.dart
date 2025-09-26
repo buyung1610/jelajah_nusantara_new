@@ -198,3 +198,60 @@
 //     );
 //   }
 // }
+
+children: [
+              // Gambar background
+              Image.network(
+                '$baseUrl/${blog.image}',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+                errorBuilder: (context, error, stackTrace) {
+                  print(error);
+                  return Center(
+                    child: Icon(Icons.broken_image, color: Colors.red),
+                  );
+                },
+              ),
+              
+              // Teks nama gunung
+              Positioned(
+                left: 10,
+                bottom: 40,
+                child: Container(
+                  height: 20,
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: Colors.black54,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text(
+                    blog.title,
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ),
+              ),
+
+              Positioned(
+                left: 10,
+                bottom: 10,
+                child: Container(
+                  height: 20,
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: Colors.black54,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.star, color: Colors.yellow, size: 15),
+                      SizedBox(width: 4),
+                      Text(
+                        "4.1",
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
