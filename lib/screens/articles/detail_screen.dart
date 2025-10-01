@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Detailscreen extends StatelessWidget {
-  const Detailscreen({super.key});
+class DetailScreen extends StatelessWidget {
+  const DetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +13,7 @@ class Detailscreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Image Artikel
                 Stack(
                   children: [
                     ClipRRect(
@@ -34,7 +35,9 @@ class Detailscreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                           icon: const Icon(
                             Icons.arrow_back_ios,
                             color: Color(0XFFD1A824),
@@ -45,14 +48,47 @@ class Detailscreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                // End Image Artikel
+                // Judul Artikel
                 SizedBox(height: 20),
-                Text(
-                  "Gunung Bromo", 
-                  style: TextStyle(
-                    fontSize: 24, 
-                    fontWeight: FontWeight.bold
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Gunung Bromo", 
+                      style: TextStyle(
+                        fontSize: 24, 
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Text(
+                      'Lihat Di Maps',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0XFFD1A824),
+                        fontWeight: FontWeight.bold
+                      ),
+                    )
+                  ],
                 ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.star, 
+                      color: Color(0XFFD1A824),
+                      size: 15,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      '4.5 (355 Reviews)',
+                      style: TextStyle(
+                        fontSize: 11,
+                      ),
+                    )
+                  ],
+                ),
+                // End Judul Artikel
+                // Deskripsi Artikel
                 SizedBox(height: 10),
                 Text(
                   "Indonesia, negara kepulauan yang kaya akan keindahan alamnya, memiliki sejumlah gunung berapi yang menakjubkan, salah satunya adalah Gunung Bromo. Terletak di Taman Nasional Bromo Tengger Semeru, Jawa Timur, Gunung Bromo telah menjadi daya tarik utama bagi wisatawan domestik dan mancanegara. Dengan ketinggian sekitar 2.329 meter di atas permukaan laut, Gunung Bromo adalah salah satu gunung berapi paling aktif di Indonesia. Pemandangan kawah yang luas dengan latar belakang langit biru dan awan putih telah menjadi pemandangan ikonik yang memikat banyak pengunjung. Tidak hanya terbatas pada kawahnya, kawasan sekitarnya juga menawarkan panorama alam yang memukau, termasuk lautan pasir serta dikelilingi oleh pegunungan hijau yang menjulang.\n\n"
@@ -63,6 +99,8 @@ class Detailscreen extends StatelessWidget {
                     fontSize: 14,
                   ),
                 ),
+                // End Deskripsi Artikel
+                // Informasi Artikel
                 SizedBox(height: 10),
                 Text(
                   'Informasi Artikel',
@@ -127,13 +165,14 @@ class Detailscreen extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     Text(
-                      "9-26-2025",
+                      "26 - 9 - 2025",
                       style: TextStyle(
                         fontSize: 14,
                       ),
                     )
                   ],
                 ),
+                // End Informasi Artikel
               ],
             ),
           ),

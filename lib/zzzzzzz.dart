@@ -1,257 +1,174 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// import '../models/artikel_model.dart';
+class DetailScreen extends StatelessWidget {
+  const DetailScreen({super.key});
 
-// class GridArtikelPopuler extends StatelessWidget {
-//   final List<Artikel> artikelList;
-//   const GridArtikelPopuler({super.key, required this.artikelList});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     const baseUrl = 'https://api-pariwisata.rakryan.id';
-
-//     return GridView.builder(
-//       shrinkWrap: true, // biar bisa di dalam Column
-//       physics: NeverScrollableScrollPhysics(), // scroll pakai parent
-//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//         crossAxisCount: 2, // 2 kolom
-//         crossAxisSpacing: 20, // jarak horizontal
-//         mainAxisSpacing: 20, // jarak vertical
-//         childAspectRatio: 0.8, // rasio lebar : tinggi
-//       ),
-//       itemCount: artikelList.length, // jumlah item
-//       itemBuilder: (context, index) {
-//         final blog = artikelList[index];
-//         return GestureDetector(
-//           onTap: () {},
-//           child: ClipRRect(
-//             borderRadius: BorderRadius.circular(15),
-//             child: Stack(
-//               children: [
-//                 // Gambar background
-//                 Image.network(
-//                   '$baseUrl/${blog.image}',
-//                   fit: BoxFit.cover,
-//                   width: double.infinity,
-//                   height: double.infinity,
-//                   errorBuilder: (context, error, stackTrace) {
-//                     print(error);
-//                     return Center(
-//                       child: Icon(Icons.broken_image, color: Colors.red),
-//                     );
-//                   },
-//                 ),
-
-//                 // Teks nama gunung
-//                 Positioned(
-//                   left: 10,
-//                   bottom: 40,
-//                   child: Container(
-//                     height: 20,
-//                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
-//                     decoration: BoxDecoration(
-//                       color: Colors.black54,
-//                       borderRadius: BorderRadius.circular(15),
-//                     ),
-//                     child: Text(
-//                       blog.title,
-//                       style: TextStyle(color: Colors.white, fontSize: 12),
-//                     ),
-//                   ),
-//                 ),
-
-//                 Positioned(
-//                   left: 10,
-//                   bottom: 10,
-//                   child: Container(
-//                     height: 20,
-//                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
-//                     decoration: BoxDecoration(
-//                       color: Colors.black54,
-//                       borderRadius: BorderRadius.circular(15),
-//                     ),
-//                     child: Row(
-//                       children: [
-//                         Icon(Icons.star, color: Colors.yellow, size: 15),
-//                         SizedBox(width: 4),
-//                         Text(
-//                           "4.1",
-//                           style: TextStyle(color: Colors.white, fontSize: 12),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-            
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
-
-
-
-// FutureBuilder(
-//                   future: ArtikelController.getArtikel(), 
-//                   builder: (context, snapshot) {
-//                     if (snapshot.connectionState == ConnectionState.waiting) {
-//                       return const CircularProgressIndicator();
-//                     } else if (snapshot.hasError) {
-//                       return Text('Error: ${snapshot.error}');
-//                     } else {
-//                       final artikelList = snapshot.data as List<Artikel> ?? [];
-//                       final List<Artikel> artikelPopuler = artikelList.take(4).toList();
-
-//                       return GridArtikelPopuler(artikelList: artikelPopuler);
-//                     }
-//                   }
-//                 )
-
-
-
-// import 'package:flutter/material.dart';
-
-// class GridArtikelPopuler extends StatelessWidget {
-//   const GridArtikelPopuler({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GridView.builder(
-//       shrinkWrap: true, // biar bisa di dalam Column
-//       physics: NeverScrollableScrollPhysics(), // scroll pakai parent
-//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//         crossAxisCount: 2, // 2 kolom
-//         crossAxisSpacing: 20, // jarak horizontal
-//         mainAxisSpacing: 20, // jarak vertical
-//         childAspectRatio: 0.8, // rasio lebar : tinggi
-//       ),
-//       itemCount: 4, // jumlah item
-//       itemBuilder: (context, index) {
-//         return GestureDetector(
-//           onTap: () {},
-//           child: ClipRRect(
-//             borderRadius: BorderRadius.circular(15),
-//             child: Stack(
-//               children: [
-//                 // Gambar background
-//                 Image.network(
-//                   'assets/images/bromo.png',
-//                   fit: BoxFit.cover,
-//                   width: double.infinity,
-//                   height: double.infinity,
-//                   errorBuilder: (context, error, stackTrace) {
-//                     print(error);
-//                     return Center(
-//                       child: Icon(Icons.broken_image, color: Colors.red),
-//                     );
-//                   },
-//                 ),
-
-//                 // Teks nama gunung
-//                 Positioned(
-//                   left: 10,
-//                   bottom: 40,
-//                   child: Container(
-//                     height: 20,
-//                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
-//                     decoration: BoxDecoration(
-//                       color: Colors.black54,
-//                       borderRadius: BorderRadius.circular(15),
-//                     ),
-//                     child: Text(
-//                       'Gunung Bromo',
-//                       style: TextStyle(color: Colors.white, fontSize: 12),
-//                     ),
-//                   ),
-//                 ),
-
-//                 Positioned(
-//                   left: 10,
-//                   bottom: 10,
-//                   child: Container(
-//                     height: 20,
-//                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
-//                     decoration: BoxDecoration(
-//                       color: Colors.black54,
-//                       borderRadius: BorderRadius.circular(15),
-//                     ),
-//                     child: Row(
-//                       children: [
-//                         Icon(Icons.star, color: Colors.yellow, size: 15),
-//                         SizedBox(width: 4),
-//                         Text(
-//                           "4.1",
-//                           style: TextStyle(color: Colors.white, fontSize: 12),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
-
-children: [
-              // Gambar background
-              Image.network(
-                '$baseUrl/${blog.image}',
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,
-                errorBuilder: (context, error, stackTrace) {
-                  print(error);
-                  return Center(
-                    child: Icon(Icons.broken_image, color: Colors.red),
-                  );
-                },
-              ),
-              
-              // Teks nama gunung
-              Positioned(
-                left: 10,
-                bottom: 40,
-                child: Container(
-                  height: 20,
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
-                  decoration: BoxDecoration(
-                    color: Colors.black54,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Text(
-                    blog.title,
-                    style: TextStyle(color: Colors.white, fontSize: 12),
-                  ),
-                ),
-              ),
-
-              Positioned(
-                left: 10,
-                bottom: 10,
-                child: Container(
-                  height: 20,
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
-                  decoration: BoxDecoration(
-                    color: Colors.black54,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.star, color: Colors.yellow, size: 15),
-                      SizedBox(width: 4),
-                      Text(
-                        "4.1",
-                        style: TextStyle(color: Colors.white, fontSize: 12),
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        "assets/images/bromo.png",
+                        width: double.infinity,
+                        fit: BoxFit.cover,
                       ),
-                    ],
+                    ),
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: Container(
+                        width: 35,
+                        height: 35,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.arrow_back_ios,
+                            color: Color(0XFFD1A824),
+                            size: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Gunung Bromo", 
+                      style: TextStyle(
+                        fontSize: 24, 
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Text(
+                      'Lihat Di Maps',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0XFFD1A824),
+                        fontWeight: FontWeight.bold
+                      ),
+                    )
+                  ],
+                ),
+                // SizedBox(height: 5),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.star, 
+                      color: Color(0XFFD1A824),
+                      size: 15,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      '4.5 (355 Reviews)',
+                      style: TextStyle(
+                        fontSize: 11,
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Indonesia, negara kepulauan yang kaya akan keindahan alamnya, memiliki sejumlah gunung berapi yang menakjubkan, salah satunya adalah Gunung Bromo. Terletak di Taman Nasional Bromo Tengger Semeru, Jawa Timur, Gunung Bromo telah menjadi daya tarik utama bagi wisatawan domestik dan mancanegara. Dengan ketinggian sekitar 2.329 meter di atas permukaan laut, Gunung Bromo adalah salah satu gunung berapi paling aktif di Indonesia. Pemandangan kawah yang luas dengan latar belakang langit biru dan awan putih telah menjadi pemandangan ikonik yang memikat banyak pengunjung. Tidak hanya terbatas pada kawahnya, kawasan sekitarnya juga menawarkan panorama alam yang memukau, termasuk lautan pasir serta dikelilingi oleh pegunungan hijau yang menjulang.\n\n"
+                  "Taman Nasional Bromo Tengger Semeru juga dikenal karena keberadaan masyarakat Tengger yang menjalankan tradisi dan ritual unik. Salah satunya adalah upacara Kasada yang dilakukan setiap tahun pada bulan purnama di tengah-tengah kawah Gunung Bromo. Dalam upacara ini, masyarakat Tengger memberikan persembahan kepada Sang Hyang Widhi (Tuhan Yang Maha Esa) sebagai tanda syukur atas panen yang melimpah. Ritual ini menarik perhatian banyak wisatawan yang ingin menyaksikan keunikan budaya lokal.\n\n"
+                  "Selain pendakian, terdapat beragam kegiatan wisata lain yang dapat dinikmati di sekitar Gunung Bromo. Wisatawan dapat menikmati perjalanan menunggang kuda melintasi lautan pasir, mengunjungi Pura Luhur Poten yang berada di kaki Gunung Bromo, atau sekedar menikmati matahari terbit yang memukau dari puncak Penanjakan. Tidak ketinggalan untuk Anda yang gemar berswafoto, Gunung Bromo memiliki berbagai tempat dan pemandangan menakjubkan yang layak untuk diabadikan.",
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 14,
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: 10),
+                Text(
+                  'Informasi Artikel',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 15,
+                      backgroundColor: Color(0XFFD1A824),
+                      child: Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.white,
+                        size: 20,
+                      )
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "Gunung Bromo",
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 15,
+                      backgroundColor: Color(0XFFD1A824),
+                      child: Icon(
+                        Icons.person_2_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      )
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "Author Name",
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 15,
+                      backgroundColor: Color(0XFFD1A824),
+                      child: Icon(
+                        Icons.calendar_month_outlined,
+                        color: Colors.white,
+                        size: 20,
+                      )
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "9-26-2025",
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
